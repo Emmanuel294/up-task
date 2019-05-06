@@ -1,0 +1,18 @@
+:root{
+    --primario: #455A64;
+}
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    min-height: 100%;
+}
+.login,
+.crear-cuenta {
+    background-color: var(--primario);
+}
