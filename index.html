@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UpTask</title>
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.0/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="css/sweetalert2.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="barra">
+        <h1>Administración de proyectos</h1>
+        <a href="#">Cerrar sesión</a>
+    </div>
+
+    <div class="contenedor">
+        <aside class="contenedor-proyectos">
+            <div class="panel crear-proyecto">
+                <a href="#" class="boton">Nuevo proyecto <i class="fas fa-plus"></i></a>
+            </div>
+            <div class="panel lista-proyectos">
+                <h2>Proyectos</h2>
+                <ul id="proyectos">
+                    <li>
+                        <a href="#">
+                            Diseño de la pagina web
+                        </a>
+                    </li>
+                    <li>
+                            <a href="#">
+                                Carrito de SEMB
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="contenido-principal">
+            <h1>
+                <span>Diseño de la pagina web</span>
+            </h1>
+            <form action="#" clasS="agregar-tarea">
+                <div class="campo">
+                    <label for="tarea">Tarea:</label>
+                    <input type="text" name="tarea" id="tarea" placeholder="Nombre de la tarea" class="nombre-tarea">
+                </div>
+                <div class="campo enviar">
+                    <input type="hidden" id="id_proyecto" value="id_proyecto">
+                    <input type="submit" class="boton nueva-tarea" value="Agregar">
+                </div>
+            </form>
+
+            <h2>Listado de tareas</h2>
+
+            <div class="tareas-pendientes">
+                <ul>
+                    <li id="<?php echo $tarea['id'] ?>" class="tarea">
+                        <p>Diseño del inicio</p>
+                        <div class="acciones">
+                                <i class="far fa-check-circle"></i>
+                                <i class="fas fa-trash-alt"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div><!--.contenedor-->
+</body>
+
+</html>

@@ -79,6 +79,7 @@ body {
     background-color: #e2a430;
     border: none;
     text-transform: uppercase;
+    transition: background-color .5s ease-in-out;
     text-align: center;
     display: block;
     padding: 1rem;
