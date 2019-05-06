@@ -1,5 +1,7 @@
 :root {
     --primario: #455A64;
+    --secundario: rgb(100, 130, 146);
+    --botonesAmarillo: #e2a430;
 }
 
 html {
@@ -76,7 +78,7 @@ body {
 }
 
 .boton {
-    background-color: #e2a430;
+    background-color: var(--botonesAmarillo);
     border: none;
     text-transform: uppercase;
     transition: background-color .5s ease-in-out;
@@ -94,4 +96,68 @@ body {
 .campo a {
     color: black;
     text-decoration: none;
+}
+
+
+/**Barra**/
+body.index{
+    height: 100vh;
+}
+.barra{
+    background-color: var(--primario);
+    padding: 1rem;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.barra h1{
+    color: white;
+    padding: 0;
+    font-size: 1.5rem;
+}
+.barra a{
+    color: white;
+    text-decoration: none;
+}
+
+/**Aside**/
+.contenedor-proyectos{
+    min-height: 100vh;
+    max-width: 300px;
+    background-color: var(--secundario);
+    padding-top: 1rem;
+}
+.panel{
+    padding: 1rem;
+    margin: 1rem;
+}
+.panel a{
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.panel h2{
+    color: var(--botonesAmarillo);
+    font-weight: 900;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0;
+}
+.crear-proyecto i{
+    margin-left: 1rem;
+}
+.crear-proyecto a{
+    color: var(--secundario);
+}
+.lista-proyectos ul{
+    list-style: none;
+    padding: 1.5rem 0 0 0;
+    margin: 0;
+}
+.lista-proyectos ul li{
+    margin-bottom: 1rem;
+}
+.lista-proyectos ul li a:hover{
+    color: var(--botonesAmarillo);
 }
