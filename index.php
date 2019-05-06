@@ -9,6 +9,7 @@
 </head>
 <body class="login">
     <div class="contenedor-formulario">
+        <h1>Administrador</h1>
         <form id="formulario" class="caja-login" method="post">
             <div class="campo">
                 <label for="user">Usuario:</label>
@@ -20,7 +21,7 @@
             </div>
             <div class="campo enviar">
                 <input type="hidden" id="tipo" value="login">
-                <input type="submit" class="boton" value="Iniciar sesion">
+                <input type="submit" class="boton" value="Iniciar sesión">
             </div>
             <div class="campo">
                 <a href="crear-cuenta.php">Inicia sesion o crea una cuenta nueva</a>

@@ -1,18 +1,96 @@
-:root{
+:root {
     --primario: #455A64;
 }
+
 html {
     box-sizing: border-box;
     height: 100%;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
+
 body {
     font-family: 'Lato', sans-serif;
     min-height: 100%;
 }
+
+/**Login**/
 .login,
 .crear-cuenta {
     background-color: var(--primario);
+}
+
+.contenedor-formulario {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.contenedor-formulario h1 {
+    text-align: center;
+    color: white;
+}
+
+.caja-login {
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #525059;
+    max-width: 650px;
+    width: 90%;
+    min-height: 300px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+    padding: 3rem;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    flex: 0 0 100px;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.campo input[type="text"],
+.campo input[type="password"] {
+    border: 0;
+    height: 3rem;
+    flex: 1;
+    border: 1px solid #455A64;
+    border-radius: 5rem;
+    padding-left: 2rem;
+}
+
+.campo.enviar {
+    justify-content: flex-end;
+}
+
+.boton {
+    background-color: #e2a430;
+    border: none;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    padding: 1rem;
+    font-weight: 900;
+}
+
+.boton:hover {
+    cursor: pointer;
+    background-color: #c28c27 !important;
+}
+
+.campo a {
+    color: black;
+    text-decoration: none;
 }
