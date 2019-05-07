@@ -67,6 +67,6 @@
             </div>
         </main>
     </div><!--.contenedor-->
-</body>
-
-</html>
+<?php
+    include("inc/layouts/footer.php");
+?>

@@ -22,5 +22,6 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+<?php
+    include("inc/layouts/footer.php");
+?>
