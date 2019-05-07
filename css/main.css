@@ -37,7 +37,10 @@ body {
     text-align: center;
     color: white;
 }
-
+.contenedor-formulario h1 span{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
 .caja-login {
     margin: 0 auto;
     background-color: white;
