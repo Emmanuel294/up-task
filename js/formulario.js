@@ -33,6 +33,19 @@ function validarRegistro(e){
         var xhr = new XMLHttpRequest();
 
         //Abrir la conexion
-        xhr.open('POST', 'inc/modelos/modelo-admin.php');
+        xhr.open('POST', 'inc/modelos/modelo-admin.php', true);
+
+        //Retorno de datos
+
+        xhr.onload = function(){
+            if(this.status === 200){
+                console.log(JSON.parse(xhr.responseText));
+            }
+        };
+
+        //Enviar la peticion
+
+        xhr.send(datos);
+
     }
 }
