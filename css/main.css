@@ -161,3 +161,70 @@ body.index{
 .lista-proyectos ul li a:hover{
     color: var(--botonesAmarillo);
 }
+
+/**Contenido principal**/
+.contenedor{
+    display: flex;
+    height: calc( 100% - 60px);
+}
+.contenido-principal{
+    flex: 1;
+    padding: 1rem;
+    overflow: scroll;
+}
+.contenido-principal h1,
+.contenido-principal h2{
+    text-align: center;
+}
+.contenido-principal h1{
+    font-size: 1.8rem;
+}
+.contenido-principal h2{
+    font-size: 1.4rem;
+    margin-top: 2rem;
+}
+.contenido-principal h1 span{
+    font-weight: 400;
+}
+.agregar-tarea{
+    max-width: 800px;
+    width: 90%;
+    background-color: var(--secundario);
+    margin: 0 auto;
+    padding: 2rem;
+    color: white;
+    transition: background-color .5s ease-in-out;
+}
+
+/**Lista de pendientes**/
+.tareas-pendientes{
+    background-color: #F2F2F2;
+    max-width: 800px;
+    width: 90%;
+    margin: 2rem auto 0 auto;
+    padding: 2rem;
+    border: 1px solid #e1e1e1;
+}
+.tareas-pendientes ul{
+    padding: 0;
+    list-style: none;
+}
+.tareas-pendientes ul li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    border-bottom: 1px solid #e1e1e1;
+}
+.tareas-pendientes ul li:last-of-type{
+    border-bottom: none;
+}
+.tareas-pendientes ul li i{
+    cursor: pointer;
+}
+.tareas-pendientes ul li i:last-child{
+    margin-left: 3rem;
+}
+.completo{
+    color: #00B762;
+}
