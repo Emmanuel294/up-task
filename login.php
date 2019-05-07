@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrador de tareas</title>
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body class="login">
+<?php 
+    include("inc/funciones/funciones.php");
+    include("inc/layouts/header.php");
+?>
+
     <div class="contenedor-formulario">
         <h1>Administrador de tareas</h1>
         <form id="formulario" class="caja-login" method="post">
