@@ -82,6 +82,7 @@ body {
 
 .boton {
     background-color: var(--botonesAmarillo);
+    color: white;
     border: none;
     text-transform: uppercase;
     transition: background-color .5s ease-in-out;
@@ -89,6 +90,7 @@ body {
     display: block;
     padding: 1rem;
     font-weight: 900;
+    
 }
 
 .boton:hover {

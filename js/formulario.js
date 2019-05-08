@@ -40,7 +40,7 @@ function validarRegistro(e){
         xhr.onload = function(){
             if(this.status === 200){
                 var respuesta = JSON.parse(xhr.responseText);
-
+                //console.log(respuesta);
                 //Si la respuesta es correcta
                 if(respuesta.respuesta === 'correcto'){
                     //Si es un nuevo usuario
@@ -50,6 +50,16 @@ function validarRegistro(e){
                             text: 'El usuario se creó correctamente',
                             type: 'success'
                         });
+                    }else if(respuesta.tipo === 'login'){
+                        Swal({
+                            title: 'Login correcto',
+                            text: 'Presiona OK para abrir el dashboard',
+                            type: 'success'
+                        }).then(resultado =>{
+                            if(resultado.value){
+                                window.location.href = 'index.php';
+                            }
+                        })
                     }
                 }else{
                     //Hubo un error
