@@ -1,6 +1,8 @@
 <?php 
+    
     include("inc/funciones/funciones.php");
     include("inc/layouts/header.php");
+    echo <
 ?>
 
     <div class="contenedor-formulario">

@@ -40,7 +40,7 @@ function validarRegistro(e){
         xhr.onload = function(){
             if(this.status === 200){
                 var respuesta = JSON.parse(xhr.responseText);
-                //console.log(respuesta);
+                console.log(respuesta);
                 //Si la respuesta es correcta
                 if(respuesta.respuesta === 'correcto'){
                     //Si es un nuevo usuario

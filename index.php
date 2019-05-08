@@ -1,12 +1,10 @@
 <?php 
-    
+    include("inc/funciones/sesiones.php");
     include("inc/funciones/funciones.php");
     include("inc/layouts/header.php");
+    include("inc/layouts/barra.php");
 ?>
-    <div class="barra">
-        <h1>Administración de proyectos</h1>
-        <a href="#">Cerrar sesión</a>
-    </div>
+    
 
     <div class="contenedor">
         <aside class="contenedor-proyectos">
