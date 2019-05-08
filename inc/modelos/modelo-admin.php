@@ -30,13 +30,17 @@
                     'id_insertado' => $stmt->insert_id,
                     'tipo' => $accion
                 );
+            }else{
+                $respuesta = array(
+                    'respuesta' =>'error'
+                );
             }
             $stmt->close();
             $conn->close();
         }catch(Exception $e){
             //En caso de error tomar la exepcion
             $respuesta = array(
-                'pass' => $e->getMessage()
+                'respuesta' => $e->getMessage()
             );
             
         }

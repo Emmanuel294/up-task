@@ -51,6 +51,13 @@ function validarRegistro(e){
                             type: 'success'
                         });
                     }
+                }else{
+                    //Hubo un error
+                    Swal({
+                        title: 'Error',
+                        text: 'Hubo un error!',
+                        type: 'error'
+                    });
                 }
             }
         };
