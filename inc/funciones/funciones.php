@@ -1,8 +1,22 @@
-<?php 
-    function obtenerPaginaActual() {
-        $archivo = basename($_SERVER['PHP_SELF']);
-        $pagina = str_replace(".php","",$archivo);
-        return $pagina;
+<?php
+//Obtiene la pagina actual cuando se ejecuta
+function obtenerPaginaActual()
+{
+    $archivo = basename($_SERVER['PHP_SELF']);
+    $pagina = str_replace(".php", "", $archivo);
+    return $pagina;
+}
+
+/*Consultas */
+/**Obtener todos los proyectos */
+function obtenerProyectos()
+{
+    include 'conexion.php';
+    try {
+        $proyectos = $conn->query('SELECT id, nombre FROM proyectos');
+        return $proyectos;
+    } catch (Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
     }
-    obtenerPaginaActual();
-?>
+}
