@@ -9,7 +9,6 @@ function eventListeners(){
 
 function nuevoProyecto(e){
     e.preventDefault();
-    console.log('Presionaste nuevo proyecto');
     //Crear un input para el nombre del nuevo proyecto
     var nuevoProyecto = document.createElement('li');
     nuevoProyecto.innerHTML = "<input type=\"text\" id=\"nuevo-proyecto\">";
@@ -29,5 +28,12 @@ function nuevoProyecto(e){
 }
 
 function guardarProyectoBD(nombreProyecto){
-    console.log(nombreProyecto);
+    //Injectar el HTML
+    var nuevoProyecto = document.createElement('li');
+    nuevoProyecto.innerHTML = `
+        <a href="#">
+            ${nombreProyecto}
+        </a>
+    `;
+    listaProyectos.appendChild(nuevoProyecto);
 }
