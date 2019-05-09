@@ -45,7 +45,33 @@ function guardarProyectoBD(nombreProyecto){
         if(this.status === 200){
             //Obtenemos la respuesta del servidor
             var respuesta = JSON.parse(xhr.responseText);
-            console.log(respuesta);
+            var proyecto = respuesta.nombre_proyecto,
+                idProyecto = respuesta.id_proyecto,
+                tipo = respuesta.tipo,
+                resultado = respuesta.respuesta;
+            
+                //Comprobamos que se insertó
+                if(resultado === 'correcto'){
+                    if(tipo === 'crear'){
+                        //Se creó un nuevo proyecto
+                        //inyectar el nuevo proyecto en el html
+                        var nuevoProyecto = document.createElement('li');
+                        nuevoProyecto.innerHTML = `
+                            <a href=\"index.php?id_proyecto=${idProyecto}\" id=\"proyecto:${id_proyecto}\">
+                                ${proyecto}
+                            </a>
+                        `;
+                        //Agregar al HTML
+                        listaProyectos.appendChild(nuevoProyecto);
+
+                        //Enviar el alert de que se creó
+                        Swal({
+                            title: 'Proyecto creado',
+                            text: 'El proyecto: '+proyecto+' se creó',
+                            type: 'success'
+                        });
+                    }
+                }
         }
     };
 
