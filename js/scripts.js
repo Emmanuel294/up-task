@@ -28,12 +28,28 @@ function nuevoProyecto(e){
 }
 
 function guardarProyectoBD(nombreProyecto){
-    //Injectar el HTML
-    var nuevoProyecto = document.createElement('li');
-    nuevoProyecto.innerHTML = `
-        <a href="#">
-            ${nombreProyecto}
-        </a>
-    `;
-    listaProyectos.appendChild(nuevoProyecto);
+    //Creamos el lamado a ajax
+    var xhr = new XMLHttpRequest();
+
+    //Enviar los datos con formdata
+    
+    var datos = new FormData();
+    datos.append('proyecto',nombreProyecto);
+    datos.append('accion', 'crear');
+
+    //Abrimos la conexion
+    xhr.open('POST','inc/modelos/modelo-proyecto.php', true);
+
+    //En la carga
+    xhr.onload = function(){
+        if(this.status === 200){
+            //Obtenemos la respuesta del servidor
+            var respuesta = JSON.parse(xhr.responseText);
+            console.log(respuesta);
+        }
+    };
+
+    //Enviamos el request
+    xhr.send(datos);
 }
+
