@@ -3,31 +3,14 @@
     include("inc/funciones/funciones.php");
     include("inc/layouts/header.php");
     include("inc/layouts/barra.php");
+    
 ?>
     
 
     <div class="contenedor">
-        <aside class="contenedor-proyectos">
-            <div class="panel crear-proyecto">
-                <a href="#" class="boton">Nuevo proyecto <i class="fas fa-plus"></i></a>
-            </div>
-            <div class="panel lista-proyectos">
-                <h2>Proyectos</h2>
-                <ul id="proyectos">
-                    <li>
-                        <a href="#">
-                            Diseño de la pagina web
-                        </a>
-                    </li>
-                    <li>
-                            <a href="#">
-                                Carrito de SEMB
-                            </a>
-                        </li>
-                </ul>
-            </div>
-        </aside>
-
+        <?php 
+            include("inc/layouts/sidebar.php");
+        ?>
         <main class="contenido-principal">
             <h1>
                 <span>Diseño de la pagina web</span>
