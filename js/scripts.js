@@ -57,7 +57,7 @@ function guardarProyectoBD(nombreProyecto){
                         //inyectar el nuevo proyecto en el html
                         var nuevoProyecto = document.createElement('li');
                         nuevoProyecto.innerHTML = `
-                            <a href=\"index.php?id_proyecto=${idProyecto}\" id=\"proyecto:${id_proyecto}\">
+                            <a href="index.php?id_proyecto=${idProyecto}" id="proyecto:${idProyecto}">
                                 ${proyecto}
                             </a>
                         `;
@@ -69,8 +69,20 @@ function guardarProyectoBD(nombreProyecto){
                             title: 'Proyecto creado',
                             text: 'El proyecto: '+proyecto+' se creó',
                             type: 'success'
+                        }).then(resultado =>{
+                            //Redireccionar a la nueva pagina del proyecto
+                            window.location.href = 'index.php?id_proyecto='+idProyecto;
                         });
+                        
+                        
                     }
+                }else{
+                    //Hubo error
+                    Swal({
+                        title: 'Error!',
+                        text: 'Hubo un error',
+                        type: 'error'
+                    });
                 }
         }
     };
