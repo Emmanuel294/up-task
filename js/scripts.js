@@ -8,6 +8,9 @@ function eventListeners(){
 
     //Boton para agregar tarea
     document.querySelector('.nueva-tarea').addEventListener('click',agregarTarea);
+
+    //Botones para las cciones de las tareas
+    document.querySelector('.tareas-pendientes').addEventListener('click', accionesTareas);
 }
 
 function nuevoProyecto(e){
@@ -178,3 +181,13 @@ function agregarTarea(e){
     }
 }
 
+//Cambia el estado de las tareas o las elimina
+function accionesTareas(e){
+    e.preventDefault();
+
+    if(e.target.classList.contains('fa-check-circle')){
+        console.log('Hiciste click en circulo');
+    }else if(e.target.classList.contains('fa-trash-alt')){
+        console.log('Hiciste click en el bote');
+    }
+}
