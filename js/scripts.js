@@ -186,8 +186,21 @@ function accionesTareas(e){
     e.preventDefault();
 
     if(e.target.classList.contains('fa-check-circle')){
-        console.log('Hiciste click en circulo');
+        if(e.target.classList.contains('completo')){
+            e.target.classList.remove('completo');
+            cambiarEstadoTarea(e.target);
+        }else{
+            e.target.classList.add('completo');
+            cambiarEstadoTarea(e.target);
+        }
     }else if(e.target.classList.contains('fa-trash-alt')){
-        console.log('Hiciste click en el bote');
+
     }
+}
+
+
+//Completa o descompleta una tarea
+function cambiarEstadoTarea(tarea){
+    var idTarea = tarea.parentElement.parentElement.id.split(':');
+    console.log(idTarea[1]);
 }
