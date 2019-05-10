@@ -4,7 +4,9 @@ var listaProyectos = document.querySelector('ul#proyectos');
 
 function eventListeners() {
     //Document ready
-    
+    document.addEventListener('DOMContentLoaded',function(){
+        actualizarProgreso();
+    })
 
     //Boton para crear proyecto
     document.querySelector('.crear-proyecto a').addEventListener('click', nuevoProyecto);
@@ -173,6 +175,8 @@ function agregarTarea(e) {
 
                         document.querySelector('.agregar-tarea').reset;
 
+                        //Actualizar progreso de la barra
+                        actualizarProgreso();
                     }
                 } else {
                     //Error
@@ -250,9 +254,9 @@ function cambiarEstadoTarea(tarea, estado) {
     //Al cargar
     xhr.onload = function () {
         if (this.status === 200) {
-            console.log(JSON.parse(xhr.responseText));
-
-            
+            //console.log(JSON.parse(xhr.responseText));
+            //Actualizar progreso de la barra
+            actualizarProgreso();
         }
     };
 
@@ -294,9 +298,36 @@ function eliminarTareaBD(tarea){
             if(listaTareas.length == 0){
                 document.querySelector('.tareas-pendientes ul').innerHTML = '<p class="lista-vacia">No hay tareas en este proyecto</p>';
             }
+            //Actualizar progreso
+            actualizarProgreso();
         }
     };
 
     //Mandar los datos
     xhr.send(datos);
+}
+
+//Actualiza el avance del proyecto
+function actualizarProgreso(){
+    //Obtener todas las tareas
+    const tareas = document.querySelectorAll('.tarea');
+    
+    //Obtener las tareas completadas
+    const tareasCompletadas = document.querySelectorAll('i.completo');
+
+    //Determinar el avance
+    const avance = Math.round((tareasCompletadas.length/tareas.length)*100);
+    
+    //Asignar el avance a la barra
+    const porcentaje = document.querySelector('#porcentaje');
+    porcentaje.style.width = avance+'%';
+
+    //Mostrar alerta al coompletar el 100%
+    if(avance == 100){
+        Swal({
+            title: 'Proyecto terminado',
+            text: 'Ya no tienes tareas pendientes!',
+            type: 'success'
+        });
+    }
 }
