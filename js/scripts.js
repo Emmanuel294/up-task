@@ -4,7 +4,7 @@ var listaProyectos = document.querySelector('ul#proyectos');
 
 function eventListeners() {
     //Document ready
-    document.addEventListener('DOMContentLoaded',function(){
+    document.addEventListener('DOMContentLoaded', function () {
         actualizarProgreso();
     })
 
@@ -148,7 +148,7 @@ function agregarTarea(e) {
                         });
                         //Seleccionar el parrafo con lista-vacia
                         var parrafoLv = document.querySelectorAll('.lista-vacia');
-                        if(parrafoLv.length > 0){
+                        if (parrafoLv.length > 0) {
                             document.querySelector('.lista-vacia').remove();
                         }
 
@@ -267,7 +267,7 @@ function cambiarEstadoTarea(tarea, estado) {
 
 
 //Eliminar la tarea de la base de datos
-function eliminarTareaBD(tarea){
+function eliminarTareaBD(tarea) {
     var idTarea = tarea.id.split(':');
 
     //Crear llamado ajax
@@ -286,7 +286,7 @@ function eliminarTareaBD(tarea){
         if (this.status === 200) {
             var resultado = JSON.parse(xhr.responseText);
             var respuesta = resultado.respuesta;
-            if(respuesta === 'error'){
+            if (respuesta === 'error') {
                 Swal({
                     title: 'Error',
                     text: 'Hubo un error al borrar la tarea',
@@ -295,8 +295,9 @@ function eliminarTareaBD(tarea){
             }
             //Comprobar que haya tareas restantes
             var listaTareas = document.querySelectorAll('li.tarea');
-            if(listaTareas.length == 0){
+            if (listaTareas.length == 0) {
                 document.querySelector('.tareas-pendientes ul').innerHTML = '<p class="lista-vacia">No hay tareas en este proyecto</p>';
+                document.querySelector('.avance').classList.add('invisible');
             }
             //Actualizar progreso
             actualizarProgreso();
@@ -308,26 +309,34 @@ function eliminarTareaBD(tarea){
 }
 
 //Actualiza el avance del proyecto
-function actualizarProgreso(){
+function actualizarProgreso() {
     //Obtener todas las tareas
     const tareas = document.querySelectorAll('.tarea');
-    
-    //Obtener las tareas completadas
-    const tareasCompletadas = document.querySelectorAll('i.completo');
+    if (tareas.length > 0) {
+        //Mostrar el div con la barra
+        const avan = document.querySelector('.avance');
+        avan.classList.remove('invisible');
+        //Obtener las tareas completadas
+        const tareasCompletadas = document.querySelectorAll('i.completo');
 
-    //Determinar el avance
-    const avance = Math.round((tareasCompletadas.length/tareas.length)*100);
-    
-    //Asignar el avance a la barra
-    const porcentaje = document.querySelector('#porcentaje');
-    porcentaje.style.width = avance+'%';
+        //Determinar el avance
+        const avance = Math.round((tareasCompletadas.length / tareas.length) * 100);
 
-    //Mostrar alerta al coompletar el 100%
-    if(avance == 100){
-        Swal({
-            title: 'Proyecto terminado',
-            text: 'Ya no tienes tareas pendientes!',
-            type: 'success'
-        });
+        //Asignar el avance a la barra
+        const porcentaje = document.querySelector('#porcentaje');
+        porcentaje.style.width = avance + '%';
+
+        //Mostrar alerta al coompletar el 100%
+        if (avance == 100) {
+            Swal({
+                title: 'Proyecto terminado',
+                text: 'Ya no tienes tareas pendientes!',
+                type: 'success'
+            });
+        }
+    }else{
+        //No mostrar el avance
+        const avance = document.querySelector('.avance');
+        avance.classList.add('invisible');
     }
 }

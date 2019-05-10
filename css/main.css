@@ -240,7 +240,8 @@ body.index{
     width: 90%;
     margin: 0 auto;
     max-width: 800px;
-    background-color: #e1e1e1;;
+    background-color: #e1e1e1;
+    border-radius: 10px 10px 10px 10px;
 }
 .porcentaje{
     width: 0%;
@@ -248,5 +249,11 @@ body.index{
     background-color: #00B762;
     background-image: linear-gradient(45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
     background-size: 1rem 1rem;
+    border-radius: 10px 10px 10px 10px;
     transition: width .5s ease-in-out;
+}
+
+/**No mostrar la barra si no hay tareas**/
+.invisible{
+    display: none;
 }
