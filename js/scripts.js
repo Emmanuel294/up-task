@@ -253,5 +253,34 @@ function cambiarEstadoTarea(tarea, estado) {
 
 //Eliminar la tarea de la base de datos
 function eliminarTareaBD(tarea){
-    console.log(tarea);
+    var idTarea = tarea.id.split(':');
+
+    //Crear llamado ajax
+    var xhr = new XMLHttpRequest();
+
+    //Informacion
+    var datos = new FormData();
+    datos.append('id', idTarea[1]);
+    datos.append('accion', 'eliminar');
+
+    //Abrir la conexion
+    xhr.open('POST', 'inc/modelos/modelo-tarea.php');
+
+    //Al cargar
+    xhr.onload = function () {
+        if (this.status === 200) {
+            var resultado = JSON.parse(xhr.responseText);
+            var respuesta = resultado.respuesta;
+            if(respuesta === 'error'){
+                Swal({
+                    title: 'Error',
+                    text: 'Hubo un error al borrar la tarea',
+                    type: 'error'
+                });
+            }
+        }
+    };
+
+    //Mandar los datos
+    xhr.send(datos);
 }

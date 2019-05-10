@@ -60,5 +60,32 @@
         }
         echo json_encode($respuesta);
     }
+
+    if($accion === 'eliminar'){
+       //Importamos la conexion
+       include '../funciones/conexion.php';
+       //Preparamos la consulta a la base de datos
+       try{
+           $stmt = $conn->prepare("DELETE FROM tareas WHERE id = ?");
+           $stmt->bind_param('i',$idTarea);
+           $stmt->execute();
+           if($stmt->affected_rows >0){
+               $respuesta = array(
+                   'respuesta' => 'correcto'
+               );
+           }else{
+               $respuesta = array(
+                   'respuesta' => 'error'
+               );
+           }
+           $stmt->close();
+           $conn->close();
+       }catch(Exception $e){
+           $respuesta = array(
+               'error' => $e->getMessage()
+           );
+       }
+       echo json_encode($respuesta);
+   }
     
 ?>
