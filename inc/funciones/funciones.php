@@ -33,3 +33,15 @@ function obtenerNombreDelProyecto($id = null){
         return false;
     }
 }
+
+//Obtener las clases del proyecto
+function obtenerTareasProyecto($id = null){
+    include 'conexion.php';
+    try {
+        $proyectos = $conn->query("SELECT id, nombre, estado FROM tareas WHERE id_proyecto = {$id} ");
+        return $proyectos;
+    } catch (Exception $e) {
+        echo "Error! : " . $e->getMessage();
+        return false;
+    }
+}
