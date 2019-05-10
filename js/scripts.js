@@ -126,7 +126,50 @@ function agregarTarea(e){
             if(this.status == 200){
                 //todo correcto
                 var respuesta = JSON.parse(xhr.responseText);
-                console.log(respuesta);
+                var resultado = respuesta.respuesta,
+                    tarea = respuesta.tarea,
+                    idInsertado = respuesta.id_tarea,
+                    tipo = respuesta.tipo;
+                if(resultado === 'correcto'){
+                    //Se agregó correctamente
+                    if(tipo === 'crear'){
+                        Swal({
+                            title: 'Tarea creada',
+                            text: 'La tarea: '+tarea+' se creó correctamente',
+                            type: 'success'
+                        });
+                        //Construir el template
+                        var nuevaTarea = document.createElement('li');
+
+                        //Agregar el id
+                        nuevaTarea.id = 'tarea:'+idInsertado;
+
+                        //Agregar la clase de nueva tarea
+                        nuevaTarea.classList.add('tarea');
+
+                        //Construir html
+                        nuevaTarea.innerHTML=`
+                            <p>${tarea}</p>
+                            <div class="acciones">
+                                <i class="far fa-check-circle"></i>
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                        `;
+                        //Agregarlo al HTML
+                        var listado = document.querySelector('.tareas-pendientes ul');
+                        listado.appendChild(nuevaTarea);
+
+                        document.querySelector('.agregar-tarea').reset;
+
+                    }
+                }else{
+                    //Error
+                    Swal({
+                        title: 'Error',
+                        text: 'Hubo un error!',
+                        type: 'error'
+                    });
+                }
             }
         }
         
