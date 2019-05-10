@@ -188,10 +188,10 @@ function accionesTareas(e){
     if(e.target.classList.contains('fa-check-circle')){
         if(e.target.classList.contains('completo')){
             e.target.classList.remove('completo');
-            cambiarEstadoTarea(e.target);
+            cambiarEstadoTarea(e.target,0);
         }else{
             e.target.classList.add('completo');
-            cambiarEstadoTarea(e.target);
+            cambiarEstadoTarea(e.target,1);
         }
     }else if(e.target.classList.contains('fa-trash-alt')){
 
@@ -200,7 +200,29 @@ function accionesTareas(e){
 
 
 //Completa o descompleta una tarea
-function cambiarEstadoTarea(tarea){
+function cambiarEstadoTarea(tarea, estado){
     var idTarea = tarea.parentElement.parentElement.id.split(':');
-    console.log(idTarea[1]);
+    
+    //Crear llamado ajax
+    var xhr = new XMLHttpRequest();
+
+    //Informacion
+    var datos = new FormData();
+    datos.append('id',idTarea[1]);
+    datos.append('accion', 'actualizar');
+    datos.append('estado',estado);
+
+    //Abrir la conexion
+    xhr.open('POST','inc/modelos/modelo-tarea.php');
+
+    //Al cargar
+    xhr.onload = function(){
+        if(this.status === 200){
+            console.log(JSON.parse(xhr.responseText));
+        }
+    };
+
+    //Mandar los datos
+    xhr.send(datos);
+
 }

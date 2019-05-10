@@ -32,5 +32,9 @@
         }
         echo json_encode($respuesta);
     }
+     if($accion === 'actualizar'){
+         $estado = $_POST['estado'];
+        echo json_encode($_POST);
+    }
     
 ?>
