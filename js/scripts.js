@@ -102,7 +102,7 @@ function agregarTarea(e){
     //Validar que el campo tenga algo escrito
     if(nombreTarea ===''){
         Swal({
-            tittle: 'Error',
+            title: 'Error',
             text: 'Una tarea no puede ir vacia',
             type: 'error'
         });
@@ -116,7 +116,7 @@ function agregarTarea(e){
         var datos = new FormData();
         datos.append('tarea',nombreTarea);
         datos.append('accion','crear');
-        datos.append('id_proyecti',document.querySelector('#id_proyecto').value);
+        datos.append('id_proyecto',document.querySelector('#id_proyecto').value);
 
         //Abrir la conexion
         xhr.open('POST','inc/modelos/modelo-tarea.php',true);

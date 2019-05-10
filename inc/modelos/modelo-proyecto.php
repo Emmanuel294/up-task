@@ -3,9 +3,6 @@
     $proyecto = $_POST['proyecto'];
 
     if($accion == 'crear'){
-        $respuesta = array(
-            'Primero' => 'Primer respuesta'
-        );
         //Importamos la conexion
         include '../funciones/conexion.php';
         //Preparamos la consulta a la base de datos
