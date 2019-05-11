@@ -9,7 +9,7 @@
 ?>
 
     <div class="contenedor-formulario">
-        <h1>Administrador de tareas</h1>
+        <h1>Administrador de proyectos</h1>
         <form id="formulario" class="caja-login" method="post">
             <div class="campo">
                 <label for="user">Usuario:</label>
@@ -24,7 +24,7 @@
                 <input type="submit" class="boton" value="Iniciar sesión">
             </div>
             <div class="campo">
-                <a href="crear-cuenta.php">Inicia sesion o crea una cuenta nueva</a>
+                <a href="crear-cuenta.php">Crea una cuenta nueva</a>
             </div>
         </form>
     </div>

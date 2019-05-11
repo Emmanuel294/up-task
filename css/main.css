@@ -242,6 +242,7 @@ body.index{
     max-width: 800px;
     background-color: #e1e1e1;
     border-radius: 10px 10px 10px 10px;
+    margin-bottom: 10px;
 }
 .porcentaje{
     width: 0%;
@@ -256,4 +257,48 @@ body.index{
 /**No mostrar la barra si no hay tareas**/
 .invisible{
     display: none;
+}
+
+/**Footer**/
+footer{
+    position: relative;
+    z-index: 100;
+    min-height: 44px;
+    background-color: var(--primario);
+    border-top: 1px solid #e1e1e1;
+    
+}
+.contenido-footer{
+    display: flex;
+    justify-content: space-around;
+    flex-direction:1; 
+    align-items: center;
+}
+.contenido-footer .copy{
+    color: white;
+    font-size: 1.5rem;
+}
+.contenido-footer .obj{
+    width: 33.3%;
+}
+.contenido-footer h3{
+    color: var(--botonesAmarillo);
+    text-transform: uppercase;
+}
+.contenido-footer .obj p{
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+}
+.redes h3{
+    margin-top: -20px;
+}
+.redes a{
+    color: white;
+    font-size: 2rem;
+    margin-left: 40px;
+    transition: .3s ease-in-out;
+}
+.redes a:hover{
+    color: var(--botonesAmarillo);
 }

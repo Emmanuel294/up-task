@@ -3,7 +3,7 @@
     include("inc/layouts/header.php");
 ?>
     <div class="contenedor-formulario">
-        <h1>Administrador de tareas <span>Crear cuenta</span></h1>
+        <h1>Administrador de proyectos <span>Crear cuenta</span></h1>
         <form id="formulario" class="caja-login" method="post">
             <div class="campo">
                 <label for="user">Usuario:</label>
