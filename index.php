@@ -8,6 +8,9 @@
     if(isset($_GET['id_proyecto'])){
         $idProyecto = $_GET['id_proyecto'];
     }
+    if(isset($_GET['id_user'])){
+        $user = (int)$_GET['id_user'];
+    }
 ?>
     
 
@@ -28,7 +31,7 @@
                 ?>
                 
             </h1>
-            <form action="#" clasS="agregar-tarea">
+            <form action="#" class="agregar-tarea">
                 <div class="campo">
                     <label for="tarea">Tarea:</label>
                     <input type="text" name="tarea" id="tarea" placeholder="Nombre de la tarea" class="nombre-tarea">
@@ -41,6 +44,7 @@
         <?php  
             else:
                 //Si no hay proyectos seleccionados
+                
                 echo "<p>Selecciona un proyecto a la izquierda</p>";
             endif;
         ?>
@@ -66,6 +70,7 @@
                         }
                         else{
                             //No hay tareas
+                            
                             echo "<p class=\"lista-vacia\">No hay tareas en este proyecto</p>";
                         }
                     ?>

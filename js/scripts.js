@@ -12,7 +12,9 @@ function eventListeners() {
     document.querySelector('.crear-proyecto a').addEventListener('click', nuevoProyecto);
 
     //Boton para agregar tarea
-    document.querySelector('.nueva-tarea').addEventListener('click', agregarTarea);
+    if(document.querySelectorAll('.nueva-tarea').length > 0){
+        document.querySelector('.nueva-tarea').addEventListener('click', agregarTarea);
+    }
 
     //Botones para las cciones de las tareas
     document.querySelector('.tareas-pendientes').addEventListener('click', accionesTareas);
@@ -42,11 +44,15 @@ function guardarProyectoBD(nombreProyecto) {
     //Creamos el lamado a ajax
     var xhr = new XMLHttpRequest();
 
+    //Obtenemos el id del usuario que está en el body
+    var idUser = document.querySelector('body').id;
+    console.log(idUser);
     //Enviar los datos con formdata
 
     var datos = new FormData();
     datos.append('proyecto', nombreProyecto);
     datos.append('accion', 'crear');
+    datos.append('usuario',idUser);
 
     //Abrimos la conexion
     xhr.open('POST', 'inc/modelos/modelo-proyecto.php', true);
@@ -60,7 +66,7 @@ function guardarProyectoBD(nombreProyecto) {
                 idProyecto = respuesta.id_proyecto,
                 tipo = respuesta.tipo,
                 resultado = respuesta.respuesta;
-
+                console.log(respuesta);
             //Comprobamos que se insertó
             if (resultado === 'correcto') {
                 if (tipo === 'crear') {
@@ -82,7 +88,8 @@ function guardarProyectoBD(nombreProyecto) {
                         type: 'success'
                     }).then(resultado => {
                         //Redireccionar a la nueva pagina del proyecto
-                        window.location.href = 'index.php?id_proyecto=' + idProyecto;
+                        window.location.href = 'index.php?id_proyecto=' + idProyecto +'&id_user='+idUser;
+                        
                     });
 
 
@@ -174,6 +181,7 @@ function agregarTarea(e) {
                         listado.appendChild(nuevaTarea);
 
                         document.querySelector('.agregar-tarea').reset;
+                        document.querySelector('.nombre-tarea').value = "";
 
                         //Actualizar progreso de la barra
                         actualizarProgreso();

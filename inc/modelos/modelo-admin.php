@@ -70,7 +70,8 @@
                     $respuesta = array(
                         'respuesta' => 'correcto',
                         'nombre_usuario' => $nombre_usuario,
-                        'tipo' => $accion
+                        'tipo' => $accion,
+                        'id_user' => $id_usuario
                     );
                 }else{
                     //login incorrecto, enviar error

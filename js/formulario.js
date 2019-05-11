@@ -57,7 +57,7 @@ function validarRegistro(e){
                             type: 'success'
                         }).then(resultado =>{
                             if(resultado.value){
-                                window.location.href = 'index.php';
+                                window.location.href = 'index.php?id_user='+respuesta.id_user;
                             }
                         })
                     }

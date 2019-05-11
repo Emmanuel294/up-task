@@ -9,11 +9,11 @@ function obtenerPaginaActual()
 
 /*Consultas */
 /**Obtener todos los proyectos */
-function obtenerProyectos()
+function obtenerProyectos($user)
 {
     include 'conexion.php';
     try {
-        $proyectos = $conn->query('SELECT id, nombre FROM proyectos');
+        $proyectos = $conn->query('SELECT id, nombre FROM proyectos WHERE id_usuario ='. (int)$user);
         return $proyectos;
     } catch (Exception $e) {
         echo "Error! : " . $e->getMessage();
