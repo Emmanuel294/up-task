@@ -1,5 +1,5 @@
     <footer>
-    <script src="js/sweetalert2.all.min.js"></script>
+    
     <?php 
         $actual = obtenerPaginaActual();
         if($actual == "crear-cuenta" || $actual == "login"){
@@ -21,7 +21,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
-    
+    <script src="js/sweetalert2.all.min.js"></script>
     </footer>
 </body>
 </html>

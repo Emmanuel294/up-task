@@ -141,6 +141,7 @@ function agregarTarea(e) {
             if (this.status == 200) {
                 //todo correcto
                 var respuesta = JSON.parse(xhr.responseText);
+                
                 var resultado = respuesta.respuesta,
                     tarea = respuesta.tarea,
                     idInsertado = respuesta.id_tarea,
