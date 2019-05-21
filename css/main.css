@@ -25,7 +25,6 @@ body {
 .crear-cuenta {
     background-color: var(--primario);
 }
-
 .contenedor-formulario {
     display: flex;
     justify-content: center;
@@ -53,16 +52,13 @@ body {
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
     padding: 3rem;
 }
-
-.campo {
+.campo{
     display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    flex-direction: column;
 }
-
 .campo label {
-    flex: 0 0 100px;
-    text-align: right;
+    flex: 0 0 0px;
+    text-align: left;
     padding-right: 1rem;
 }
 
@@ -73,8 +69,30 @@ body {
     flex: 1;
     border: 1px solid #455A64;
     border-radius: 5rem;
-    padding-left: 2rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 }
+@media (min-width: 530px){
+    .campo {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        flex-direction: inherit;
+    }
+    .campo label {
+        flex: 0 0 100px;
+        text-align: right;
+        padding-right: 1rem;
+    }
+    
+    .campo input[type="text"],
+    .campo input[type="password"] {
+        flex: 1;
+        padding-left: 2rem;
+    }
+}
+
+
 
 .campo.enviar {
     justify-content: flex-end;
